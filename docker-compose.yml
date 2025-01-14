@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    petalinux:
+      volumes:
+          - '/opt:/opt'
+          - '/home/${USER}:/home/petalinux'
+          - '/local:/local'
+      image: adi_petalinux:2021.2
+      build: 
+        context: .
+        args:
+          PUID: ${DOCKER_UID} 
+          PGID: ${GID:-101}

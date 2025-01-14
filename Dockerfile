@@ -25,8 +25,10 @@ ENV LC_ALL en_US.UTF-8
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
-# not really necessary, just to make it easier to install packages on the run...
+#RUN groupmod -g $PGID users
 RUN useradd -u $PUID -g $PGID -ms /bin/bash petalinux
-RUN echo "root:peta" | chpasswd
+#RUN useradd -ms /bin/bash petalinux
+#RUN echo "root:peta" | chpasswd
 
 USER petalinux
+ENTRYPOINT ["tail", "-f", "/dev/null"]
