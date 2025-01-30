@@ -1,11 +1,11 @@
-version: '3.3'
+version: '2.3'
 services:
-    petalinux:
+    enclustra-bsp:
       volumes:
           - '/opt:/opt'
-          - '/home/${USER}:/home/petalinux'
+          - '/home/${USER}:/home/mathworks'
           - '/local:/local'
-      image: adi_petalinux:2021.2
+      image: enclustra-bsp-xilinx:2021.2
       build: 
         context: .
         args:
